@@ -1,7 +1,7 @@
 ## Imports
 import tkinter as tk
 import tkinter.ttk as ttk
-import tempconverter, calculator
+from apps import tempconverter, calculator
 
 ## Initialize screen
 window = tk.Tk()
