@@ -14,28 +14,28 @@ class Calculate(tk.Tk):
         self.window.resizable(width=True, height=False)
 
         ##Initialize asset (Volts)
-        enter_volt = tk.Frame(master=self.window)
-        self.volt_entry = tk.Entry(master=enter_volt, width=4)
+        ent_volt = tk.Frame(master=self.window)
+        self.volt_entry = tk.Entry(master=ent_volt, width=4)
         self.volt_entry.grid(row=0, column=1, sticky='e')
-        r_lbl_volt = tk.Label(master=enter_volt, text='\N{LEFTWARDS WHITE ARROW}' \
+        r_lbl_volt = tk.Label(master=ent_volt, text='\N{LEFTWARDS WHITE ARROW}' \
         'Volts')
-        l_lbl_volt = tk.Label(master=enter_volt, text='Volts' \
+        l_lbl_volt = tk.Label(master=ent_volt, text='Volts' \
         '\N{RIGHTWARDS WHITE ARROW}')
-        enter_volt.grid(row=0, column=1)
+        ent_volt.grid(row=0, column=1)
         r_lbl_volt.grid(row=0, column=2)
         l_lbl_volt.grid(row=0, column=0)
 
         ## Initialize asset (Amps)
-        enter_amp = tk.Frame(master=self.window)
-        self.amp_entry = tk.Entry(master=enter_amp, width=3)
+        ent_amp = tk.Frame(master=self.window)
+        self.amp_entry = tk.Entry(master=ent_amp, width=3)
         self.amp_entry.grid(row=1, column=1, sticky='w')
         self.result = tk.Label(master=self.window, text="")
         self.result.grid(row=3, column=1)
-        r_lbl_amp = tk.Label(master=enter_amp, text='\N{LEFTWARDS WHITE ARROW}' \
+        r_lbl_amp = tk.Label(master=ent_amp, text='\N{LEFTWARDS WHITE ARROW}' \
         'Amps')
-        l_lbl_amp = tk.Label(master=enter_amp, text='Amps' \
+        l_lbl_amp = tk.Label(master=ent_amp, text='Amps' \
         '\N{RIGHTWARDS WHITE ARROW}')
-        enter_amp.grid(row=1, column=1)
+        ent_amp.grid(row=1, column=1)
         r_lbl_amp.grid(row=1, column=2)
         l_lbl_amp.grid(row=1, column=0)
 

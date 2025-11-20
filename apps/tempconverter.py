@@ -11,7 +11,7 @@ class TempConvert(tk.Tk):
     ## Window initialization
     def start(self):
         self.window.title("Temperature Converter")
-        self.window.resizable(width=True, height=False)
+        self.window.resizable(width=False, height=False)
 
         ## Asset initialization (F)
         frm_entry_f = tk.Frame(master=self.window)

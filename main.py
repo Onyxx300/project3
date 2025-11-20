@@ -1,7 +1,7 @@
 ## Imports
 import tkinter as tk
 import tkinter.ttk as ttk
-from apps import tempconverter, calculator
+from apps import tempconverter, calculator, evasion
 
 ## Initialize screen
 window = tk.Tk()
@@ -13,6 +13,8 @@ def temp():
     temp = tempconverter.TempConvert(window=window)
 def calc():
     calc = calculator.Calculate(window=window)
+def game():
+    game = evasion.GameWindow(window=window)
 def test_butt():
     print('TEST')
 def exit_butt():
@@ -34,10 +36,10 @@ button_calc = tk.Button(
     command=calc
 ).grid(row=0, column=1, padx=10, pady=10)
 
-button_ur = tk.Button(
+button_game = tk.Button(
     master=window,
-    text='Test',
-    command=test_butt
+    text='Play Evasion',
+    command=game
 ).grid(row=0, column=2, padx=10, pady=10)
 
 button_ml = tk.Button(
