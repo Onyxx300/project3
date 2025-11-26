@@ -5,7 +5,6 @@ import tkinter as tk
 class Calculate(tk.Tk):
     def __init__(self, window: tk.Tk) -> None:
         self.window = tk.Tk()
-        window.destroy()
         self.start()
 
     ## Initialize window
@@ -67,7 +66,6 @@ class Calculate(tk.Tk):
     ## Initialize quit function
     def return_to_sender(self):
         self.window.destroy()
-        import main
 
 
 

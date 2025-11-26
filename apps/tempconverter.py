@@ -5,7 +5,6 @@ import tkinter as tk
 class TempConvert(tk.Tk):
     def __init__(self, window: tk.Tk) -> None:
         self.window = tk.Tk()
-        window.destroy()
         self.start()
     
     ## Window initialization
@@ -53,7 +52,7 @@ class TempConvert(tk.Tk):
         ## Button initialization (return)
         btn_return = tk.Button(
             master=self.window,
-            text="Return",
+            text="Exit",
             command=self.return_to_sender
         ).grid(row=1, column=1, padx=10)
 
@@ -90,4 +89,3 @@ class TempConvert(tk.Tk):
     def return_to_sender(self):
         """Kills the Temperature Converter and loads the Welcome program"""
         self.window.destroy()
-        import main

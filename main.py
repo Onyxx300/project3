@@ -1,11 +1,11 @@
 ## Imports
 import tkinter as tk
 import tkinter.ttk as ttk
-from apps import tempconverter, calculator
+from apps import tempconverter, calculator, texteditor
 
 ## Initialize screen
 window = tk.Tk()
-window.title('Central Hub')
+window.title('Fun Land')
 window.resizable(width=False, height=False)
 
 ## Initialize functions
@@ -14,8 +14,12 @@ def temp():
 def calc():
     calc = calculator.Calculate(window=window)
 def game():
-    import game
+    import evasion
     from gameassets import player, collectables, enemy, inner_workings
+def text_edit():
+    text = texteditor.TextEdit(window=window)
+def game_2():
+    from apps import caterpillar
 def test_butt():
     print('TEST')
 def exit_butt():
@@ -37,16 +41,18 @@ button_calc = tk.Button(
     command=calc
 ).grid(row=0, column=1, padx=10, pady=10)
 
+## Initialize button (Evasion Game)
 button_game = tk.Button(
     master=window,
     text='Play Evasion Game',
     command=game
 ).grid(row=0, column=2, padx=10, pady=10)
 
-button_ml = tk.Button(
+## Initialize button (Text Editor)
+button_textedit = tk.Button(
     master=window,
-    text="Test",
-    command=test_butt
+    text="Text Editor",
+    command=text_edit
 ).grid(row=1, column=0, padx=10, pady=10)
 
 button_exit = tk.Button(
@@ -55,10 +61,10 @@ button_exit = tk.Button(
     command=exit_butt
 ).grid(row=1, column=1, padx=10, pady=10)
 
-button_mr = tk.Button(
+button_snake = tk.Button(
     master=window,
-    text='Test',
-    command=test_butt
+    text='Play Hungry Caterpillar',
+    command=game_2
 ).grid(row=1, column=2, padx=10, pady=10)
 
 button_ll = tk.Button(
