@@ -4,11 +4,11 @@ import time
 import random
 
 ## Set player speed
-speed = 15
+speed = 30
 
 ## Define window area
-screen_x = 480
-screen_y = 360
+screen_x = 1024
+screen_y = 768
 
 ## Set color space (CMYK)
 black = pygame.Color(0, 0, 0)
@@ -22,7 +22,7 @@ pygame.init()
 
 ## Initialize window
 screen = pygame.display.set_mode((screen_x, screen_y))
-pygame.display.set_caption("Hungry Caterpillar")
+pygame.display.set_caption("Hungry Caterpillar X-Treme")
 framerate = pygame.time.Clock()
 
 snake_position = [100, 50]
