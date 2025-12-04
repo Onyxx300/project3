@@ -2,8 +2,8 @@
 import turtle
 
 ## Player movement values
-PLAYER_STEP_V = 3
-PLAYER_STEP_H = 3
+PLAYER_STEP_V = 12
+PLAYER_STEP_H = 12
 
 ## Player character initialize
 class Player(turtle.Turtle):

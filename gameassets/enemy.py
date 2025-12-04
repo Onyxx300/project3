@@ -22,5 +22,5 @@ class Enemy(turtle.Turtle):
     def start_moving(self):
         if not self.ismoving:
             self.ismoving = True
-            self.forward(5)
+            self.forward(20)
             self.ismoving = False

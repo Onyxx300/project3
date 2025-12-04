@@ -2,6 +2,7 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 from apps import tempconverter, calculator, texteditor
+import documentation
 
 ## Initialize screen
 window = tk.Tk()
@@ -22,6 +23,8 @@ def game_2():
     from apps import caterpillar
 def game_3():
     from apps import caterpillar_xtreme
+def docs():
+    doc = documentation.Docs(window=window)
 def test_butt():
     print('TEST')
 def exit_butt():
@@ -75,10 +78,10 @@ button_snake2 = tk.Button(
     command=game_3
 ).grid(row=2, column=0, padx=10, pady=10)
 
-button_lm = tk.Button(
+button_docs = tk.Button(
     master=window,
-    text='Test',
-    command=test_butt
+    text='Documentation',
+    command=docs
 ).grid(row=2, column=1, padx=10, pady=10)
 
 button_lr = tk.Button(
