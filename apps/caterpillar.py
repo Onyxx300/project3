@@ -4,11 +4,11 @@ import time
 import random
 
 ## Set player speed
-speed = 15
+speed = 20
 
 ## Define window area
-screen_x = 480
-screen_y = 360
+screen_x = 512
+screen_y = 384
 
 ## Set color space (CMYK)
 black = pygame.Color(0, 0, 0)
@@ -20,35 +20,56 @@ yellow = pygame.Color(255, 255, 0)
 ## Initialize pygame libraries
 pygame.init()
 
+## Sound Effect Setup
+collect_sound = pygame.mixer.Sound("sounds/yoshi-eat.wav")
+collide_sound = pygame.mixer.Sound("sounds/slam.wav")
+
+## Music Setup
+bg_music = pygame.mixer.music.load("music/bgm.wav")
+pygame.mixer.music.play(-1)
+
+## Set app icon
+appicon = pygame.image.load("icons/caterpillar.png")
+pygame.display.set_icon(appicon)
+
 ## Initialize window
 screen = pygame.display.set_mode((screen_x, screen_y))
 pygame.display.set_caption("Hungry Caterpillar")
 framerate = pygame.time.Clock()
 
+## Initialize snake object
 snake_position = [100, 50]
-
 body = [  [100, 50],
           [90, 50],
           [80, 50],
           [70, 50]
       ]
 
+## Initialize fruit object
 fruit_position = [random.randrange(1, (screen_x//10)) * 10,
                   random.randrange(1, (screen_y//10)) * 10]
 fruit_spawn = True
 
+## Initialize starting direction
 direction = "RIGHT"
 change_to = direction
 
+## Initialize score
 score = 0
 
+## Initialize score counter
 def show_score(choice, color, font, size):
+    '''Takes the value of "score" and displays it during gameplay'''
     score_font = pygame.font.SysFont("papyrus", 20)
-    score_surf = score_font.render('Score: ' + str(score), True, yellow)
+    score_surf = score_font.render('Score: ' + str(score), True, white)
     score_rect = score_surf.get_rect()
     screen.blit(score_surf, score_rect)
 
+## Game over function
 def game_over():
+    '''Stops music, plays impact sound, shows final score, and then exits'''
+    pygame.mixer.music.stop()
+    pygame.mixer.Sound.play(collide_sound)
     death_font = pygame.font.SysFont("papyrus", 50)
     death_surf = death_font.render("Final Score: " + str(score), True, yellow)
     death_rect = death_surf.get_rect()
@@ -57,9 +78,11 @@ def game_over():
     pygame.display.flip()
     time.sleep(5)
     pygame.quit()
-    quit()
 
+## Gameplay loop
 while True:
+    
+    ## Keybinds
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
@@ -71,6 +94,7 @@ while True:
             if event.key == pygame.K_RIGHT:
                 change_to = "RIGHT"
 
+    ## Direction check
     if change_to == "UP" and direction != "DOWN":
         direction = "UP"
     if change_to == "DOWN" and direction != "UP":
@@ -80,6 +104,7 @@ while True:
     if change_to == "RIGHT" and direction != "LEFT":
         direction = "RIGHT"
 
+    ## Movement values
     if direction == "UP":
         snake_position[1] -= 10
     if direction == "DOWN":
@@ -88,39 +113,46 @@ while True:
         snake_position[0] -= 10
     if direction == "RIGHT":
         snake_position[0] += 10
-
     body.insert(0, list(snake_position))
+
+    ## Collect fruit
     if snake_position[0] == fruit_position[0] and snake_position[1] == fruit_position[1]:
         score += 5
+        pygame.mixer.Sound.play(collect_sound)
         fruit_spawn = False
     else:
         body.pop()
     
+    ## Replace collected fruit
     if not fruit_spawn:
         fruit_position = [random.randrange(1, (screen_x//10)) * 10,
                           random.randrange(1, (screen_y//10)) * 10]
-        
     fruit_spawn = True
 
+    ## Set background color
     screen.fill(black)
 
+    ## Draw snake
     for pos in body:
         pygame.draw.rect(screen, cyan,
                          pygame.Rect(pos[0], pos[1], 10, 10))
+    
+    ## Draw fruit
     pygame.draw.rect(screen, magenta, pygame.Rect(
         fruit_position[0], fruit_position[1], 10, 10))
     
+    ## Game over 
     if snake_position[0] < 0 or snake_position[0] > screen_x - 10:
         game_over()
     if snake_position[1] < 0 or snake_position[1] > screen_y - 10:
         game_over()
-
     for block in body[1:]:
         if snake_position[0] == block[0] and snake_position[1] == block[1]:
             game_over()
 
-    show_score(1, yellow, 'papyrus', 20)
+    ## Draw score counter
+    show_score(1, white, 'papyrus', 20)
 
+    ## Draw screen
     pygame.display.update()
-
     framerate.tick(speed)

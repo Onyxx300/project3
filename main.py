@@ -20,6 +20,8 @@ def text_edit():
     text = texteditor.TextEdit(window=window)
 def game_2():
     from apps import caterpillar
+def game_3():
+    from apps import caterpillar_xtreme
 def test_butt():
     print('TEST')
 def exit_butt():
@@ -67,10 +69,10 @@ button_snake = tk.Button(
     command=game_2
 ).grid(row=1, column=2, padx=10, pady=10)
 
-button_ll = tk.Button(
+button_snake2 = tk.Button(
     master=window,
-    text='Test',
-    command=test_butt
+    text='Play Hungry Caterpillar X-Treme',
+    command=game_3
 ).grid(row=2, column=0, padx=10, pady=10)
 
 button_lm = tk.Button(
