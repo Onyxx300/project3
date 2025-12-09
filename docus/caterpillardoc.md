@@ -13,3 +13,4 @@ RULES:
 CREDITS:
 -Sound effects from Super Mario World
 -Music is Metal Teeth by Trashii
+-Coded by Erik Hardy in 2025 for CSI 218 final project using the pygame engine

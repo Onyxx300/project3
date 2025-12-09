@@ -6,7 +6,7 @@ import documentation
 
 ## Initialize screen
 window = tk.Tk()
-window.title('Fun Land')
+window.title('Software Suite')
 window.resizable(width=False, height=False)
 
 ## Initialize functions
@@ -25,6 +25,8 @@ def game_3():
     from apps import caterpillar_xtreme
 def docs():
     doc = documentation.Docs(window=window)
+def github_link():
+    from apps import github
 def test_butt():
     print('TEST')
 def exit_butt():
@@ -84,10 +86,10 @@ button_docs = tk.Button(
     command=docs
 ).grid(row=2, column=1, padx=10, pady=10)
 
-button_lr = tk.Button(
+button_git = tk.Button(
     master=window,
-    text='Test',
-    command=test_butt
+    text='My GitHub Repositories',
+    command=github_link
 ).grid(row=2, column=2, padx=10, pady=10)
 
 ## Draw screen

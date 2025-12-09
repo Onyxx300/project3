@@ -11,3 +11,8 @@ RULES:
 -Coins reward you 10 points each
 -The triangle deducts 100 points
 -After the triangle hits you thrice, it's game over
+
+CREDITS:
+-Developed by Erik Hardy in 2025 for CSI 218 second project using the turtle 
+graphics engine
+-Refactored by Erik Hardy in 2025 for CSI 218 final project

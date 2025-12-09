@@ -4,7 +4,7 @@ import time
 import random
 
 ## Set player speed
-speed = 33
+speed = 22
 
 ## Define window area
 screen_x = 1024
@@ -38,7 +38,7 @@ pygame.display.set_caption("Hungry Caterpillar X-Treme")
 framerate = pygame.time.Clock()
 
 ## Initialize snake object
-snake_position = [100, 50]
+caterpillar_position = [100, 50]
 body = [  [100, 50],
           [90, 50],
           [80, 50],
@@ -106,18 +106,19 @@ while True:
 
     ## Movement values
     if direction == "UP":
-        snake_position[1] -= 10
+        caterpillar_position[1] -= 10
     if direction == "DOWN":
-        snake_position[1] += 10
+        caterpillar_position[1] += 10
     if direction == "LEFT":
-        snake_position[0] -= 10
+        caterpillar_position[0] -= 10
     if direction == "RIGHT":
-        snake_position[0] += 10
-    body.insert(0, list(snake_position))
+        caterpillar_position[0] += 10
+    body.insert(0, list(caterpillar_position))
 
     ## Collect fruit
-    if snake_position[0] == fruit_position[0] and snake_position[1] == fruit_position[1]:
+    if caterpillar_position[0] == fruit_position[0] and caterpillar_position[1] == fruit_position[1]:
         score += 2
+        speed += 1
         pygame.mixer.Sound.play(collect_sound)
         fruit_spawn = False
     else:
@@ -142,12 +143,12 @@ while True:
         fruit_position[0], fruit_position[1], 10, 10))
     
     ## Game over
-    if snake_position[0] < 0 or snake_position[0] > screen_x - 10:
+    if caterpillar_position[0] < 0 or caterpillar_position[0] > screen_x - 10:
         game_over()
-    if snake_position[1] < 0 or snake_position[1] > screen_y - 10:
+    if caterpillar_position[1] < 0 or caterpillar_position[1] > screen_y - 10:
         game_over()
     for block in body[1:]:
-        if snake_position[0] == block[0] and snake_position[1] == block[1]:
+        if caterpillar_position[0] == block[0] and caterpillar_position[1] == block[1]:
             game_over()
 
     ## Draw scoreboard
