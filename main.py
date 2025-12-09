@@ -1,11 +1,12 @@
 ## Imports
 import tkinter as tk
 import tkinter.ttk as ttk
-import tempconverter, calculator
+from apps import tempconverter, calculator, texteditor
+import documentation
 
 ## Initialize screen
 window = tk.Tk()
-window.title('Central Hub')
+window.title('Software Suite')
 window.resizable(width=False, height=False)
 
 ## Initialize functions
@@ -13,6 +14,19 @@ def temp():
     temp = tempconverter.TempConvert(window=window)
 def calc():
     calc = calculator.Calculate(window=window)
+def game():
+    import evasion
+    from gameassets import player, collectables, enemy, inner_workings
+def text_edit():
+    text = texteditor.TextEdit(window=window)
+def game_2():
+    from apps import caterpillar
+def game_3():
+    from apps import caterpillar_xtreme
+def docs():
+    doc = documentation.Docs(window=window)
+def github_link():
+    from apps import github
 def test_butt():
     print('TEST')
 def exit_butt():
@@ -34,16 +48,18 @@ button_calc = tk.Button(
     command=calc
 ).grid(row=0, column=1, padx=10, pady=10)
 
-button_ur = tk.Button(
+## Initialize button (Evasion Game)
+button_game = tk.Button(
     master=window,
-    text='Test',
-    command=test_butt
+    text='Play Evasion Game',
+    command=game
 ).grid(row=0, column=2, padx=10, pady=10)
 
-button_ml = tk.Button(
+## Initialize button (Text Editor)
+button_textedit = tk.Button(
     master=window,
-    text="Test",
-    command=test_butt
+    text="Text Editor",
+    command=text_edit
 ).grid(row=1, column=0, padx=10, pady=10)
 
 button_exit = tk.Button(
@@ -52,28 +68,28 @@ button_exit = tk.Button(
     command=exit_butt
 ).grid(row=1, column=1, padx=10, pady=10)
 
-button_mr = tk.Button(
+button_snake = tk.Button(
     master=window,
-    text='Test',
-    command=test_butt
+    text='Play Hungry Caterpillar',
+    command=game_2
 ).grid(row=1, column=2, padx=10, pady=10)
 
-button_ll = tk.Button(
+button_snake2 = tk.Button(
     master=window,
-    text='Test',
-    command=test_butt
+    text='Play Hungry Caterpillar X-Treme',
+    command=game_3
 ).grid(row=2, column=0, padx=10, pady=10)
 
-button_lm = tk.Button(
+button_docs = tk.Button(
     master=window,
-    text='Test',
-    command=test_butt
+    text='Documentation',
+    command=docs
 ).grid(row=2, column=1, padx=10, pady=10)
 
-button_lr = tk.Button(
+button_git = tk.Button(
     master=window,
-    text='Test',
-    command=test_butt
+    text='My GitHub Repositories',
+    command=github_link
 ).grid(row=2, column=2, padx=10, pady=10)
 
 ## Draw screen
