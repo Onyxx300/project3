@@ -11,6 +11,7 @@ RULES:
 -Coins reward you 10 points each
 -The triangle deducts 100 points
 -After the triangle hits you thrice, it's game over
+-Set monitor to 60Hz if it isn't already
 
 CREDITS:
 -Developed by Erik Hardy in 2025 for CSI 218 second project using the turtle 
